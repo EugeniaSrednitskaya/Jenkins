@@ -24,10 +24,10 @@ public final class BaseUtils {
                 properties.setProperty(CHROME_OPTIONS_PROP, System.getenv(CHROME_OPTIONS));
             } else {
                 try {
-                    InputStream inputStream = BaseUtils.class.getClassLoader().getResourceAsStream("local.properties");
+                    InputStream inputStream = BaseUtils.class.getClassLoader().getResourceAsStream("config.properties");
                     if (inputStream == null) {
-                        System.out.println("ERROR: The \u001B[31mlocal.properties\u001B[0m file not found in src/test/resources/ directory.");
-                        System.out.println("You need to create it from local.properties.TEMPLATE file.");
+                        System.out.println("ERROR: The \u001B[config.properties\u001B[0m file not found in src/test/resources/ directory.");
+                        System.out.println("You need to create it from config.properties.TEMPLATE file.");
                         System.exit(1);
                     }
                     properties.load(inputStream);
