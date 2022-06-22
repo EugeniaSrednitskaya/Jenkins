@@ -182,6 +182,7 @@ public class EugeniaSrednitskayaTest extends BaseTest {
 
     @Test(dependsOnMethods = "ESSignGuestbookDisplayedTest")
     public void ESSignGuestbookErrorMessageTest() throws InterruptedException {
+
         ESSignGuestbookDisplayedTest();
 
         String strExpected = "Error: Error: Invalid security code.";
