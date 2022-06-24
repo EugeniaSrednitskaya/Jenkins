@@ -26,11 +26,6 @@ public final class BaseUtils {
         return properties;
     }
 
-    static void get(WebDriver driver) {
-        driver.get(String.format("http://localhost:%s", getProperties().getProperty(PROP_PORT)));
-        //driver.get("http://localhost:8080");
-    }
-
     private static void initProperties() {
         if (properties == null) {
             properties = new Properties();
@@ -76,4 +71,9 @@ public final class BaseUtils {
 
         return driver;
     }
+
+//    static void get(WebDriver driver) {
+//        driver.get(String.format("http://localhost:%s", getProperties().getProperty(PROP_PORT)));
+//        //driver.get("http://localhost:8080");
+//    }
 }
