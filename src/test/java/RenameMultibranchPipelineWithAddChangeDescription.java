@@ -96,11 +96,13 @@ public class RenameMultibranchPipelineWithAddChangeDescription extends BaseTest 
     }
 
     private boolean isMultibranchPipelineDescriptionExists(String jobName) {
+
         goHome();
         getDriver().findElement
                 (By.xpath("//a[@href = 'job/".concat(jobName).concat("/']"))).click();
         return getDriver().findElement
                 (By.id("view-message")).isDisplayed();
+
     }
 
     @Test(description = "TC_050.001 | Multibranch Pipeline > Configure: Change name")
