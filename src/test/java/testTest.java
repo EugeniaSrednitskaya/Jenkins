@@ -15,6 +15,7 @@ public class testTest {
         //System.setProperty(chromeDriver, driverPath);
         ChromeOptions chromeOptions = new ChromeOptions();
         String options = "--disable-gpu;--no-sandbox;--disable-dev-shm-usage;--headless;--window-size=1920,1080";
+
         if (options != null) {
             for (String argument : options.split(";")) {
                 chromeOptions.addArguments(argument);
