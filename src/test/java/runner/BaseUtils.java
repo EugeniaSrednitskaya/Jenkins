@@ -10,12 +10,26 @@ import java.io.InputStream;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 
+import static runner.BaseUtils.PREFIX_PROP;
+import static runner.BaseUtils.getProperties;
+
 public final class BaseUtils {
 
     private static final String CHROME_OPTIONS = "CHROME_OPTIONS";
     private static final String CHROME_OPTIONS_PROP = "default." + CHROME_OPTIONS.toLowerCase();
+    static final String PREFIX_PROP = "default.";
+    private static final String PROP_PORT = PREFIX_PROP + "port";
+
 
     private static Properties properties;
+
+    static Properties getProperties() {
+        return properties;
+    }
+
+    static void get(WebDriver driver) {
+        driver.get(String.format("http://localhost:%s", getProperties().getProperty(PROP_PORT)));
+    }
 
     private static void initProperties() {
         if (properties == null) {
