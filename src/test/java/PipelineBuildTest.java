@@ -99,6 +99,7 @@ public class PipelineBuildTest extends BaseTest {
                 .getAttribute("tooltip");
 
         Assert.assertEquals(statusBuild, "Success");
+
     }
 
     @Test(priority = 3, dependsOnMethods = "testBuildPipeline_TC_019_001")
