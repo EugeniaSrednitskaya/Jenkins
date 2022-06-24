@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.*;
 
-import static runner.BaseUtils.getProperties;
+import static runner.BaseUtils.getProperty;
 
 public abstract class BaseTest {
 
@@ -20,15 +20,15 @@ public abstract class BaseTest {
     protected void beforeMethod() {
 
         driver = BaseUtils.createDriver();
-        driver.get(String.format("http://localhost:%s", getProperties().getProperty(PROP_PORT)));
+        driver.get(String.format("http://localhost:%s", getProperty(PROP_PORT)));
 //        BaseUtils.get(driver);
 
         WebElement name = driver.findElement(By.name("j_username"));
-        name.sendKeys(getProperties().getProperty(PROP_ADMIN_USERNAME));
+        name.sendKeys(getProperty(PROP_ADMIN_USERNAME));
         //name.sendKeys("EugeniaSrednitskaya");
 
         WebElement password = driver.findElement(By.name("j_password"));
-        password.sendKeys(getProperties().getProperty(PROP_ADMIN_PAS));
+        password.sendKeys(getProperty(PROP_ADMIN_PAS));
         //password.sendKeys("ffeea7a4cd5941178f942304df1f8a1f");
 
         WebElement SignIn = driver.findElement(By.name("Submit"));
