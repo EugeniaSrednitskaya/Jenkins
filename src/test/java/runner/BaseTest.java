@@ -22,10 +22,12 @@ public abstract class BaseTest {
         BaseUtils.get(driver);
 
         WebElement name = driver.findElement(By.name("j_username"));
-        name.sendKeys(getProperties().getProperty(PROP_ADMIN_USERNAME));
+        //name.sendKeys(getProperties().getProperty(PROP_ADMIN_USERNAME));
+        name.sendKeys("EugeniaSrednitskaya");
 
         WebElement password = driver.findElement(By.name("j_password"));
-        password.sendKeys(getProperties().getProperty(PROP_ADMIN_PAS));
+        //password.sendKeys(getProperties().getProperty(PROP_ADMIN_PAS));
+        password.sendKeys("ffeea7a4cd5941178f942304df1f8a1f");
 
         WebElement SignIn = driver.findElement(By.name("Submit"));
         SignIn.click();
