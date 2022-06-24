@@ -5,8 +5,6 @@ import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import runner.BaseTest;
-
-import java.util.ArrayList;
 import java.util.List;
 
 public class PipelineBuildTest extends BaseTest {
