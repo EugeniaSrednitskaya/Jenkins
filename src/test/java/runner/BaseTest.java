@@ -11,8 +11,9 @@ public abstract class BaseTest {
 
     private WebDriver driver;
     static final String PREFIX_PROP = "default.";
-    private static final String PROP_ADMIN_USERNAME = PREFIX_PROP + "admin.username";
-    private static final String PROP_ADMIN_PAS = PREFIX_PROP + "admin.password";
+    //private static final String PROP_ADMIN_USERNAME = PREFIX_PROP + "admin.username";
+    private static final String PROP_ADMIN_USERNAME = "default.admin.username";
+    private static final String PROP_ADMIN_PAS = "default.admin.password";
 
     @BeforeMethod
     protected void beforeMethod() {
