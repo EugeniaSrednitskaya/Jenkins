@@ -11,6 +11,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: Install JDK
     - uses: actions/checkout@v3
     - name: Set up JDK 11
       uses: actions/setup-java@v3
@@ -27,7 +28,10 @@ jobs:
         
     - name: Run Jenkins in Docker
       run: docker run -d -p 8080:8080 -p 50000:50000 --name my_jenkin jenkins/jenkins:lts-jdk11
-          
+
+    - name: Wait for the Jenkins
+      run: ./.github/wait-for-jenkins.sh
+        
     - name: Maven test
       run: mvn -X test 
       env:
