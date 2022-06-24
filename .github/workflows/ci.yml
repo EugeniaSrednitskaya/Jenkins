@@ -48,3 +48,7 @@ jobs:
           APP_OPTIONS: port=8080;admin.username=${{ secrets.ADMIN_USER_JENKINS }};admin.password=${{ secrets.ADMIN_PASSWORD_JENKINS }}
           CI_RUN: true
       continue-on-error: true
+      
+    - name: Check on failures
+      if: steps.test.outcome != 'success'
+      run: exit 1
