@@ -121,6 +121,7 @@ public class PipelineBuildTest extends BaseTest {
 
     @Test(priority = 4, dependsOnMethods = "testBuildPipeline_TC_019_001")
     public void testBuildPipelinePermalinks_TC_019_001() {
+
         String[] buildSuccessfulPermalinksPipeline = new String[] {"Last build", "Last stable build",
                 "Last successful build", "Last completed build"};
         String[] buildUnsuccessfulPermalinksPipeline = new String[] {"Last build", "Last stable build",
