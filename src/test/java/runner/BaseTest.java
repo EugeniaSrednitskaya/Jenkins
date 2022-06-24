@@ -14,12 +14,14 @@ public abstract class BaseTest {
     private static final String PROP_ADMIN_USERNAME = PREFIX_PROP + "admin.username";
     //private static final String PROP_ADMIN_USERNAME = "default.admin.username";
     private static final String PROP_ADMIN_PAS = PREFIX_PROP + "admin.password";
+    private static final String PROP_PORT = PREFIX_PROP + "port";
 
     @BeforeMethod
     protected void beforeMethod() {
 
         driver = BaseUtils.createDriver();
-        BaseUtils.get(driver);
+        driver.get(String.format("http://localhost:%s", getProperties().getProperty(PROP_PORT)));
+//        BaseUtils.get(driver);
 
         WebElement name = driver.findElement(By.name("j_username"));
         name.sendKeys(getProperties().getProperty(PROP_ADMIN_USERNAME));
