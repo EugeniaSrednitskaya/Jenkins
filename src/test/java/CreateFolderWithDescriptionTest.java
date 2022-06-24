@@ -5,8 +5,8 @@ import runner.BaseTest;
 
 public class CreateFolderWithDescriptionTest extends BaseTest {
 
-    private final String FOLDER_NAME = "TC_011_002";
-    private final String FOLDER_DESCRIPTION = "TC_011_002";
+    private final String FOLDER_NAME = "TC_011_003";
+    private final String FOLDER_DESCRIPTION = "TC_011_003";
 
     protected void createFolder() {
 
