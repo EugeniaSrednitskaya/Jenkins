@@ -28,6 +28,7 @@ public abstract class BaseTest {
 
         WebElement SignIn = driver.findElement(By.name("Submit"));
         SignIn.click();
+
     }
 
     @AfterMethod

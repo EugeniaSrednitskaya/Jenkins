@@ -20,7 +20,6 @@ public final class BaseUtils {
     static final String PREFIX_PROP = "default.";
     private static final String PROP_PORT = PREFIX_PROP + "port";
 
-
     private static Properties properties;
 
     static Properties getProperties() {
