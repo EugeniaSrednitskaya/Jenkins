@@ -25,7 +25,8 @@ public class testTest {
         WebDriverManager.chromedriver().setup();
 
         driver  = new ChromeDriver(chromeOptions);
-        driver.get("http://localhost:8080");
+        //driver.get("http://localhost:8080");
+        driver.get("http://192.168.99.100:8080/");
 
         driver.findElement(By.name("j_username")).sendKeys("EugeniaSrednitskaya");
         driver.findElement(By.name("j_password")).sendKeys("ffeea7a4cd5941178f942304df1f8a1f");
