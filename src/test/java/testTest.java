@@ -7,11 +7,11 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 
 public class testTest {
-    private static String chromeDriver = "webdriver.chrome.driver";
-    private static String driverPath = "C://Users/genni/Downloads/chromedriver_win32_101/chromedriver.exe";
+
     private static WebDriver driver;
+
     @Test
-    public void testTets() {
+    public void testTests() {
         //System.setProperty(chromeDriver, driverPath);
         ChromeOptions chromeOptions = new ChromeOptions();
         String options = "--disable-gpu;--no-sandbox;--disable-dev-shm-usage;--headless;--window-size=1920,1080";
@@ -31,6 +31,7 @@ public class testTest {
         driver.findElement(By.name("j_password")).sendKeys("ffeea7a4cd5941178f942304df1f8a1f");
         driver.findElement(By.name("Submit")).click();
     }
+
     @AfterTest
     public void exit() {
         driver.quit();
