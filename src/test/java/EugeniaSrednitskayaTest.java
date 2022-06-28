@@ -17,7 +17,6 @@ public class EugeniaSrednitskayaTest extends BaseTest {
     public void ESBrowseLanguageLetterJTest() {
 
         getDriver().get(urlDefault);
-
         getDriver().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
         WebElement iBrowseLanguage = getDriver().findElement(By.xpath("//a[@href='/abc.html']"));
