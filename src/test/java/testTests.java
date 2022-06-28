@@ -35,6 +35,7 @@ public class testTests {
 //        driver.findElement(By.name("j_password")).sendKeys("ffeea7a4cd5941178f942304df1f8a1f");
 //        driver.findElement(By.name("Submit")).click();
 
+        //Assert.assertTrue(driver.findElement(By.id("security-token")).isDisplayed());
         Assert.assertFalse(driver.findElement(By.id("security-token")).isDisplayed());
 
     }
