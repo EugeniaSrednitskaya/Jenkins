@@ -12,7 +12,7 @@ public class testForCheck {
     private static WebDriver driver;
 
     @Test
-    public void testCucu() {
+    public void cucuTest() {
 
         //System.setProperty(chromeDriver, driverPath);
         ChromeOptions chromeOptions = new ChromeOptions();
@@ -25,6 +25,7 @@ public class testForCheck {
         }
 
         WebDriverManager.chromedriver().setup();
+
         driver  = new ChromeDriver(chromeOptions);
 
         driver.get("http://localhost:8080");
@@ -33,6 +34,7 @@ public class testForCheck {
         driver.findElement(By.name("j_username")).sendKeys("EugeniaSrednitskaya");
         driver.findElement(By.name("j_password")).sendKeys("ffeea7a4cd5941178f942304df1f8a1f");
         driver.findElement(By.name("Submit")).click();
+
         //Assert.assertTrue(driver.findElement(By.id("jenkins-name-icon")).isDisplayed());
         Assert.assertTrue(driver.findElement(By.id("security-token")).isDisplayed());
         //Assert.assertFalse(driver.findElement(By.id("security-token")).isDisplayed());
