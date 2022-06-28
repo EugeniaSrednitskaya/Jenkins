@@ -42,7 +42,6 @@ public class testTests {
 
     @AfterTest
     public void exit() {
-
         driver.quit();
     }
 }
