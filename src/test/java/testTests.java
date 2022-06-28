@@ -31,11 +31,12 @@ public class testTests {
         driver.get("http://localhost:8080");
         //driver.get("http://192.168.99.100:8080/");
 
-//        driver.findElement(By.name("j_username")).sendKeys("EugeniaSrednitskaya");
-//        driver.findElement(By.name("j_password")).sendKeys("ffeea7a4cd5941178f942304df1f8a1f");
-//        driver.findElement(By.name("Submit")).click();
+        driver.findElement(By.name("j_username")).sendKeys("EugeniaSrednitskaya");
+        driver.findElement(By.name("j_password")).sendKeys("ffeea7a4cd5941178f942304df1f8a1f");
+        driver.findElement(By.name("Submit")).click();
 
-        Assert.assertFalse(driver.findElement(By.id("security-token")).isDisplayed());
+        //Assert.assertTrue(driver.findElement(By.id("security-token")).isDisplayed());
+        //Assert.assertFalse(driver.findElement(By.id("security-token")).isDisplayed());
 
     }
 
