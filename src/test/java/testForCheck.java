@@ -7,12 +7,12 @@ import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 
-public class testTests {
+public class testForCheck {
 
     private static WebDriver driver;
 
     @Test
-    public void testTests() {
+    public void testCucu() {
 
         //System.setProperty(chromeDriver, driverPath);
         ChromeOptions chromeOptions = new ChromeOptions();
