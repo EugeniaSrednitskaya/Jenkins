@@ -36,7 +36,8 @@ public class testForCheck {
         driver.findElement(By.name("Submit")).click();
 
         //Assert.assertTrue(driver.findElement(By.id("jenkins-name-icon")).isDisplayed());
-        Assert.assertTrue(driver.findElement(By.id("security-token")).isDisplayed());
+        Assert.assertFalse(driver.findElement(By.id("jenkins-name-icon")).isDisplayed());
+        //Assert.assertTrue(driver.findElement(By.id("security-token")).isDisplayed());
         //Assert.assertFalse(driver.findElement(By.id("security-token")).isDisplayed());
 
     }
