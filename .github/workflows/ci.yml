@@ -37,8 +37,8 @@ jobs:
       #run: docker run -d -p 8080:8080 -p 50000:50000 --name my_jenkin jenkins/jenkins:lts-jdk11
       run: docker run --rm -d -p 8080:8080 -p 50000:50000 --name my_jenkins -v jenkins_home:/var/jenkins_home esrednitskaya/jenkinsci_jh_2.332_jdk11
 
-    #- name: Change wrapper permissions
-      #run: chmod +x ./.github/wait-for-jenkins.sh 
+    - name: Change wrapper permissions
+      run: chmod +x ./.github/wait-for-jenkins.sh 
       
     - name: Wait for the Jenkins
       run: ./.github/wait-for-jenkins.sh        
