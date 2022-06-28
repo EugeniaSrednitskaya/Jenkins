@@ -21,6 +21,13 @@ jobs:
         distribution: 'temurin'
         cache: maven
         
+    #- name: Сache maven
+      #uses: actions/cache@v2
+      #with:
+         #path: ~/.m2/repository
+         #key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+         #restore-keys: ${{ runner.os }}-maven-        
+        
     #- name: Remove default github maven configuration
         # This step is a workaround to avoid a decryption issue of Beam's
         # net.linguica.gradle.maven.settings plugin and github's provided maven
@@ -44,7 +51,7 @@ jobs:
       run: ./.github/wait-for-jenkins.sh        
       
     - name: Maven test
-      run: mvn test 
+      run: mvn clean test 
       env:
           CHROME_OPTIONS: --disable-gpu;--no-sandbox;--disable-dev-shm-usage;--headless;--window-size=1920,1080
           APP_OPTIONS: port=8080;admin.username=${{ secrets.ADMIN_USER }};admin.password=${{ secrets.ADMIN_PAS }}

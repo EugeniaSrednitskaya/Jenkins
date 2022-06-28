@@ -7,12 +7,12 @@ import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 
-public class testTests {
+public class testForCheck {
 
     private static WebDriver driver;
 
     @Test
-    public void testTests() {
+    public void testCucu() {
 
         //System.setProperty(chromeDriver, driverPath);
         ChromeOptions chromeOptions = new ChromeOptions();
@@ -25,7 +25,6 @@ public class testTests {
         }
 
         WebDriverManager.chromedriver().setup();
-
         driver  = new ChromeDriver(chromeOptions);
 
         driver.get("http://localhost:8080");
@@ -34,15 +33,14 @@ public class testTests {
         driver.findElement(By.name("j_username")).sendKeys("EugeniaSrednitskaya");
         driver.findElement(By.name("j_password")).sendKeys("ffeea7a4cd5941178f942304df1f8a1f");
         driver.findElement(By.name("Submit")).click();
-        Assert.assertTrue(driver.findElement(By.id("jenkins-name-icon")).isDisplayed());
-        //Assert.assertTrue(driver.findElement(By.id("security-token")).isDisplayed());
+        //Assert.assertTrue(driver.findElement(By.id("jenkins-name-icon")).isDisplayed());
+        Assert.assertTrue(driver.findElement(By.id("security-token")).isDisplayed());
         //Assert.assertFalse(driver.findElement(By.id("security-token")).isDisplayed());
 
     }
 
     @AfterTest
     public void exit() {
-
         driver.quit();
     }
 }
