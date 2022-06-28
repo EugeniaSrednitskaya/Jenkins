@@ -12,7 +12,7 @@ public class testForCheck {
     private static WebDriver driver;
 
     @Test
-    public void testCucu() {
+    public void cucuTest() {
 
         //System.setProperty(chromeDriver, driverPath);
         ChromeOptions chromeOptions = new ChromeOptions();
