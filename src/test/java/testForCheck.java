@@ -27,7 +27,6 @@ public class testForCheck {
         WebDriverManager.chromedriver().setup();
 
         driver  = new ChromeDriver(chromeOptions);
-
         driver.get("http://localhost:8080");
         //driver.get("http://192.168.99.100:8080/");
 
