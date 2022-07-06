@@ -9,7 +9,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
-public class ConfigurationProperties {
+public final class ConfigurationProperties {
 
     private static FileInputStream fileInputStream;
     private static Properties PROPERTIES;
@@ -18,13 +18,13 @@ public class ConfigurationProperties {
     private static final String ENV_BROWSER_OPTIONS = "CHROME_OPTIONS";
     private static final String ENV_APP_OPTIONS = "APP_OPTIONS";
 
-    private static final String PROPERTIES_PREFIX = "default.";
-    private static final String PROP_CHROME_OPTIONS = PROPERTIES_PREFIX + ENV_BROWSER_OPTIONS.toLowerCase();
+    public static final String PROPERTIES_PREFIX = "default.";
+    private static final String PROPERTIES_CHROME_OPTIONS = PROPERTIES_PREFIX + ENV_BROWSER_OPTIONS.toLowerCase();
 
     static {
         if (System.getenv("CI_RUN") != null) {
 
-            PROPERTIES.setProperty(PROP_CHROME_OPTIONS, System.getenv(ENV_BROWSER_OPTIONS));
+            PROPERTIES.setProperty(PROPERTIES_CHROME_OPTIONS, System.getenv(ENV_BROWSER_OPTIONS));
 
             for (String option : System.getenv(ENV_APP_OPTIONS).split(";")) {
                 String[] optionArr = option.split("=");
@@ -58,7 +58,7 @@ public class ConfigurationProperties {
     static {
         chromeOptions = new ChromeOptions();
 
-        String options = getProperty(PROP_CHROME_OPTIONS);
+        String options = getProperty(PROPERTIES_CHROME_OPTIONS);
         if (options != null) {
             for (String argument : options.split(";")) {
                 chromeOptions.addArguments(argument);
