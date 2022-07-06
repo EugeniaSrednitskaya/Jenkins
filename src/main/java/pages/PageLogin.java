@@ -12,12 +12,16 @@ public class PageLogin extends PageBase{
         super(existingDriver);
     }
 
-    public void sendUser(String user) { element.getXpathLogin().sendKeys(user); }
+    public void sendUser(String user) {
+        element.getXpathLogin().sendKeys(user);
+    }
 
     public void sendPassword(String password) {
         element.getXpathPassword().sendKeys(password);
     }
 
-    public void clickSignIn() { element.getSubmitButton().click(); }
+    public void clickSignIn() {
+        element.getSubmitButton().click();
+    }
 
 }
