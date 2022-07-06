@@ -18,11 +18,12 @@ public class ConfigurationProperties {
     private static final String ENV_BROWSER_OPTIONS = "CHROME_OPTIONS";
     private static final String ENV_APP_OPTIONS = "APP_OPTIONS";
 
-    private static String PROPERTIES_PREFIX = "default.";
+    private static final String PROPERTIES_PREFIX = "default.";
     private static final String PROP_CHROME_OPTIONS = PROPERTIES_PREFIX + ENV_BROWSER_OPTIONS.toLowerCase();
 
     static {
         if (System.getenv("CI_RUN") != null) {
+
             PROPERTIES.setProperty(PROP_CHROME_OPTIONS, System.getenv(ENV_BROWSER_OPTIONS));
 
             for (String option : System.getenv(ENV_APP_OPTIONS).split(";")) {
