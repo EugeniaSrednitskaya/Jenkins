@@ -14,6 +14,7 @@ public class LocatorsPageLogin {
         this.driver = driver;
     }
 
+
     @FindBy(name = "j_username")
     private WebElement xpathLogin;
 
