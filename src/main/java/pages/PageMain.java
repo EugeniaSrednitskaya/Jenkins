@@ -12,7 +12,30 @@ public class PageMain extends PageBase{
         super(existingDriver);
     }
 
+    public Boolean headerPageMainDisplayed() {
+
+        return element.getHeaderPageMain().isDisplayed();
+    }
+
+    public String userNameCheck() {
+
+        return element.getUserName().getAttribute("href");
+    }
+
     public void clickSearch(String searchText) {
+
         element.getSearch().sendKeys(searchText, Keys.ENTER);
     }
+
+    public void clickLogOut() {
+
+        element.getLogOut().click();
+    }
+
+    public PageMain clickPageRefresh() {
+        getDriver().navigate().refresh();
+        return this;
+    }
+
+
 }
