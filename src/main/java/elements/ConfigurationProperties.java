@@ -1,13 +1,14 @@
 package elements;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 
 public final class ConfigurationProperties {
 
@@ -37,6 +38,7 @@ public final class ConfigurationProperties {
                 fileInputStream = new FileInputStream("src/test/resources/config.properties");
                 PROPERTIES = new Properties();
                 PROPERTIES.load(fileInputStream);
+                //new Properties().load(fileInputStream);
 
             } catch (IOException e) {
                 System.err.println("ERROR: file config.properties not found");
@@ -51,10 +53,6 @@ public final class ConfigurationProperties {
         }
     }
 
-    public static String getProperty(String key) {
-        return PROPERTIES.getProperty(key);
-    }
-
     static {
         chromeOptions = new ChromeOptions();
 
@@ -66,6 +64,10 @@ public final class ConfigurationProperties {
         }
 
         WebDriverManager.chromedriver().setup();
+    }
+
+    public static String getProperty(String key) {
+        return PROPERTIES.getProperty(key);
     }
 
     public WebDriver createDriver() {
