@@ -1,6 +1,5 @@
 package pages;
 
-import elements.ConfigurationProperties;
 import elements.LocatorsPageLogin;
 import org.openqa.selenium.WebDriver;
 
@@ -12,12 +11,14 @@ public class PageLogin extends PageBase{
         super(existingDriver);
     }
 
-    public void sendUser(String user) {
+    public PageLogin sendUser(String user) {
         element.getXpathLogin().sendKeys(user);
+        return this;
     }
 
-    public void sendPassword(String password) {
+    public PageLogin sendPassword(String password) {
         element.getXpathPassword().sendKeys(password);
+        return this;
     }
 
     public void clickSignIn() {
