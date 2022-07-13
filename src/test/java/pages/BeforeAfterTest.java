@@ -1,21 +1,28 @@
+package pages;
+
 import elements.ConfigurationProperties;
 import elements.ProjectHelpers;
 import org.openqa.selenium.WebDriver;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
 
 public class BeforeAfterTest {
 
     private WebDriver driver;
 
-    @BeforeMethod
+    protected WebDriver getDriver() {
+        return driver;
+    }
+
+    //@BeforeMethod
+    @BeforeTest
     protected void beforeMethod() {
         driver = new ConfigurationProperties().createDriver();
         ProjectHelpers.login(driver);
-
     }
 
-    @AfterMethod
+    @AfterTest
+    //@AfterMethod
     protected void afterMethod() {
        ProjectHelpers.logout(driver);
        driver.quit();
