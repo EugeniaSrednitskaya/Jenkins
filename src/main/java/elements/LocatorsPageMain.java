@@ -14,6 +14,12 @@ public class LocatorsPageMain {
         this.driver = driver;
     }
 
+    @FindBy(id = "header")
+    private WebElement headerPageMain;
+
+    @FindBy(id = "jenkins-name-icon")
+    private WebElement jenkinsIcon;
+
     @FindBy(linkText = "New Item")
     private WebElement newItem;
 
@@ -34,6 +40,20 @@ public class LocatorsPageMain {
 
     @FindBy(id = "search-box")
     private WebElement search;
+
+    @FindBy(xpath = "//a[contains(@href, 'user')]")
+    private WebElement userName;
+
+    @FindBy(xpath = "//a[@href = '/logout']")
+    private WebElement logOut;
+
+    public WebElement getHeaderPageMain() {
+        return headerPageMain;
+    }
+
+    public WebElement getJenkinsIcon() {
+        return jenkinsIcon;
+    }
 
     public WebDriver getDriver() {
         return driver;
@@ -65,5 +85,13 @@ public class LocatorsPageMain {
 
     public WebElement getSearch() {
         return search;
+    }
+
+    public WebElement getUserName() {
+        return userName;
+    }
+
+    public WebElement getLogOut() {
+        return logOut;
     }
 }
