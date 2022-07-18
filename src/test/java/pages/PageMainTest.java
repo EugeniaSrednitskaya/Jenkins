@@ -12,10 +12,8 @@ public class PageMainTest extends BeforeAfterTest{
     private static final String PROPERTIES_ADMIN_USERNAME = PROPERTIES_PREFIX + "admin.username";
 
     private PageMain pageMain() {
-
         return new PageMain(getDriver());
     }
-
 
     @Test
     public void testHeaderDisplay() {
