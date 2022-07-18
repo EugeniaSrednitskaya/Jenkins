@@ -22,9 +22,9 @@ public final class ConfigurationProperties {
     public static final String PROPERTIES_PREFIX = "default.";
     private static final String PROPERTIES_CHROME_OPTIONS = PROPERTIES_PREFIX + ENV_BROWSER_OPTIONS.toLowerCase();
 
-    static {
+    private static void initialization() {
         if (System.getenv("CI_RUN") != null) {
-
+            PROPERTIES = new Properties();
             PROPERTIES.setProperty(PROPERTIES_CHROME_OPTIONS, System.getenv(ENV_BROWSER_OPTIONS));
 
             for (String option : System.getenv(ENV_APP_OPTIONS).split(";")) {
@@ -38,7 +38,6 @@ public final class ConfigurationProperties {
                 fileInputStream = new FileInputStream("src/test/resources/config.properties");
                 PROPERTIES = new Properties();
                 PROPERTIES.load(fileInputStream);
-                //new Properties().load(fileInputStream);
 
             } catch (IOException e) {
                 System.err.println("ERROR: file config.properties not found");
@@ -54,6 +53,9 @@ public final class ConfigurationProperties {
     }
 
     static {
+
+        initialization();
+
         chromeOptions = new ChromeOptions();
 
         String options = getProperty(PROPERTIES_CHROME_OPTIONS);
