@@ -13,17 +13,20 @@ public class PageMainTest extends BeforeAfterTest{
         return new PageMain(getDriver());
     }
 
+    @Ignore
     @Test
     public void testHeaderDisplay() {
         Assert.assertTrue(pageMain().headerPageMainDisplayed());
     }
 
+    @Ignore
     @Test
     public void testUserNameCheck() {
         Assert.assertTrue(pageMain().userNameCheck().toLowerCase()
                 .contains(ConfigurationProperties.getProperty(PROPERTIES_ADMIN_USERNAME).toLowerCase()));
     }
     
+    @Ignore
     @Test
     public void testClickSearch() {
         String textSearch = "Search item";
