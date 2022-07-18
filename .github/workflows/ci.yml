@@ -21,13 +21,6 @@ jobs:
         distribution: 'temurin'
         cache: maven
         
-    #- name: Сache maven
-      #uses: actions/cache@v2
-      #with:
-         #path: ~/.m2/repository
-         #key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
-         #restore-keys: ${{ runner.os }}-maven-        
-        
     #- name: Remove default github maven configuration
         # This step is a workaround to avoid a decryption issue of Beam's
         # net.linguica.gradle.maven.settings plugin and github's provided maven
@@ -41,7 +34,6 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}  
         
     - name: Run Jenkins in Docker
-      #run: docker run -d -p 8080:8080 -p 50000:50000 --name my_jenkin jenkins/jenkins:lts-jdk11
       run: docker run --rm -d -p 8080:8080 -p 50000:50000 --name my_jenkins -v jenkins_home:/var/jenkins_home esrednitskaya/jenkinsci_jh_2.332_jdk11
 
     - name: Change wrapper permissions
@@ -58,6 +50,6 @@ jobs:
           CI_RUN: true
       continue-on-error: true
       
-    #- name: Check on failures
-    #  if: steps.test.outcome != 'success'
-    #  run: exit 1
+    - name: Check on failures
+      if: steps.test.outcome != 'success'
+      run: exit 1

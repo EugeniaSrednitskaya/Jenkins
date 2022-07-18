@@ -11,7 +11,7 @@ public final class ProjectHelpers {
     private static final String PROPERTIES_PORT = PROPERTIES_PREFIX + "port";
     private static final String PROPERTIES_START_PAGE = PROPERTIES_PREFIX + "loginpage";
 
-    private static final String PROPERTIES_ADMIN_USERNAME = PROPERTIES_PREFIX + "admin.username";
+    public static final String PROPERTIES_ADMIN_USERNAME = PROPERTIES_PREFIX + "admin.username";
     private static final String PROPERTIES_ADMIN_PASSWORD = PROPERTIES_PREFIX + "admin.password";
 
     public static void getURL(WebDriver driver) {
