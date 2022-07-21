@@ -13,9 +13,14 @@ public class PageMain extends PageBase{
     }
 
     public Boolean headerPageMainDisplayed() {
-
         return element.getHeaderPageMain().isDisplayed();
     }
+
+    public Boolean iconMainPageIsDisplayed(){
+        return element.getJenkinsIcon().isDisplayed();
+    }
+
+
 
     public String userNameCheck() {
 
