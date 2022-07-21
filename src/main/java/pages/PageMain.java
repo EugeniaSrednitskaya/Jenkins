@@ -13,22 +13,21 @@ public class PageMain extends PageBase{
     }
 
     public Boolean headerPageMainDisplayed() {
-
         return element.getHeaderPageMain().isDisplayed();
     }
 
     public String userNameCheck() {
-
         return element.getUserName().getAttribute("href");
     }
 
-    public void clickSearch(String searchText) {
-
+    public PageSearch getSearchResult(String searchText) {
+        element.getSearch().clear();
         element.getSearch().sendKeys(searchText, Keys.ENTER);
+
+        return new PageSearch(getDriver());
     }
 
     public void clickLogOut() {
-
         element.getLogOut().click();
     }
 
@@ -36,6 +35,4 @@ public class PageMain extends PageBase{
         getDriver().navigate().refresh();
         return this;
     }
-
-
 }
