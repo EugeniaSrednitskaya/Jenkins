@@ -24,5 +24,4 @@ public class PageLogin extends PageBase{
     public void clickSignIn() {
         element.getSubmitButton().click();
     }
-
 }
