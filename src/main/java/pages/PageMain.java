@@ -18,6 +18,12 @@ public class PageMain extends PageBase {
         return element.getHeaderPageMain().isDisplayed();
     }
 
+    public Boolean iconMainPageIsDisplayed(){
+        return element.getJenkinsIcon().isDisplayed();
+    }
+
+
+
     public String userNameCheck() {
         return element.getUserName().getAttribute("href");
     }
