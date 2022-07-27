@@ -5,6 +5,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import static elements.ProjectHelpers.PROPERTIES_ADMIN_USERNAME;
 
@@ -16,6 +17,7 @@ public class PageMainTest extends BeforeAfterTest{
 
     @Test
     public void testHeaderDisplay() {
+        getDriver().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         Assert.assertTrue(pageMain().headerPageMainDisplayed());
     }
 
