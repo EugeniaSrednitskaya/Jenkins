@@ -4,7 +4,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import pages.PageLogin;
 
+import java.util.concurrent.TimeUnit;
+
 import static elements.ConfigurationProperties.PROPERTIES_PREFIX;
+import static elements.ConfigurationProperties.getProperty;
 
 public final class ProjectHelpers {
 
@@ -15,19 +18,17 @@ public final class ProjectHelpers {
     private static final String PROPERTIES_ADMIN_PASSWORD = PROPERTIES_PREFIX + "admin.password";
 
     public static void getURL(WebDriver driver) {
-        //driver.get(String.format("http://localhost:%s", getProperties().getProperty(PROPERTIES_PORT)));
-        driver.get("http://localhost:8080/");
-        //driver.get(String.format(PROPERTIES_START_PAGE+"%s", getProperties().getProperty(PROPERTIES_PORT)));
-        //driver.get(String.format(PROPERTIES_START_PAGE+"%s", ConfigurationProperties.getProperty(PROPERTIES_PORT)));
+        driver.get(String.format("http://localhost:%s", getProperty(PROPERTIES_PORT)));
     }
 
     public static void login(WebDriver driver) {
         getURL(driver);
+        driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 
         PageLogin pageLogin = new PageLogin(driver);
 
-        pageLogin.sendUser(ConfigurationProperties.getProperty(PROPERTIES_ADMIN_USERNAME));
-        pageLogin.sendPassword(ConfigurationProperties.getProperty(PROPERTIES_ADMIN_PASSWORD));
+        pageLogin.sendUser(getProperty(PROPERTIES_ADMIN_USERNAME));
+        pageLogin.sendPassword(getProperty(PROPERTIES_ADMIN_PASSWORD));
         pageLogin.clickSignIn();
     }
 
