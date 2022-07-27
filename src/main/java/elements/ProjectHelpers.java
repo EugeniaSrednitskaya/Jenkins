@@ -1,8 +1,8 @@
 package elements;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import pages.PageLogin;
+import pages.PageMain;
 
 import java.util.concurrent.TimeUnit;
 
@@ -27,13 +27,12 @@ public final class ProjectHelpers {
 
         PageLogin pageLogin = new PageLogin(driver);
 
-        pageLogin.sendUser(getProperty(PROPERTIES_ADMIN_USERNAME));
-        pageLogin.sendPassword(getProperty(PROPERTIES_ADMIN_PASSWORD));
-        pageLogin.clickSignIn();
+        new PageLogin(driver).sendUser(getProperty(PROPERTIES_ADMIN_USERNAME))
+                             .sendPassword(getProperty(PROPERTIES_ADMIN_PASSWORD))
+                             .clickSignIn();
     }
 
     public static void logout(WebDriver driver) {
-        driver.findElement(By.xpath("//a[@href='/logout']")).click();
+        new PageMain(driver).clickLogOut();
     }
-
 }
