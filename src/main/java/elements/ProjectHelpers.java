@@ -23,6 +23,7 @@ public final class ProjectHelpers {
 
     public static void login(WebDriver driver) {
         getURL(driver);
+
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
         new PageLogin(driver).sendUser(getProperty(PROPERTIES_ADMIN_USERNAME))
