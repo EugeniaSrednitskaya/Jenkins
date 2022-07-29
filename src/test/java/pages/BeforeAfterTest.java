@@ -17,6 +17,7 @@ public class BeforeAfterTest {
     @BeforeMethod
     protected void beforeMethod() {
         driver = new ConfigurationProperties().createDriver();
+        //Assert.assertTrue(getDriver().findElement(By.xpath("//div/h1")).isDisplayed());
         ProjectHelpers.login(driver);
     }
 

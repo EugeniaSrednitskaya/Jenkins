@@ -1,10 +1,9 @@
 package elements;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import pages.PageLogin;
 import pages.PageMain;
-
-import java.util.concurrent.TimeUnit;
 
 import static elements.ConfigurationProperties.PROPERTIES_PREFIX;
 import static elements.ConfigurationProperties.getProperty;
@@ -23,9 +22,7 @@ public final class ProjectHelpers {
 
     public static void login(WebDriver driver) {
         getURL(driver);
-
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-
+        System.out.println(driver.findElement(By.xpath("//div/h1")).getText());
         new PageLogin(driver).sendUser(getProperty(PROPERTIES_ADMIN_USERNAME))
                              .sendPassword(getProperty(PROPERTIES_ADMIN_PASSWORD))
                              .clickSignIn();
