@@ -34,7 +34,7 @@ jobs:
 
     - name: Extract Jenkins data and set permission
       run: |
-          7z -xzvf ./jenkins_home.7z
+          7z e ./jenkins_home.7z
           chmod -R 777 ./jenkins_home/var/jenkins_home
       
     - name: Login to Docker Hub
