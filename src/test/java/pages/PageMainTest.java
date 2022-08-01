@@ -3,9 +3,7 @@ package pages;
 import elements.ConfigurationProperties;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
 import java.util.List;
-
 import static elements.ProjectHelpers.PROPERTIES_ADMIN_USERNAME;
 
 public class PageMainTest extends BeforeAfterTest{
