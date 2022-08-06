@@ -29,13 +29,13 @@ jobs:
       
     - name: Prepare Jenkins data
       run: |
-          cat ${{ github.workspace }}/jenkins_home/jenkins_home.7z.00* > ${{ github.workspace }}/jenkins_home.7z
+          cat ${{ github.workspace }}/jenkins_home/.jenkins.7z.00* > ${{ github.workspace }}/jenkins_home.7z
           md5sum ${{ github.workspace }}/jenkins_home.7z
 
     - name: Extract Jenkins data and set permission
       run: |
-          7z e ./jenkins_home.7z
-          chmod -R 777 ./jenkins_home/var/jenkins_home
+          7z x ./jenkins_home.7z
+          chmod -R 777 ./.jenkins
       
     - name: Login to Docker Hub
       uses: docker/login-action@v1
@@ -44,7 +44,7 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}  
         
     - name: Run Jenkins in Docker
-      run: docker run --rm -d -p 8080:8080 -p 50000:50000 --name my_jenkins -v {{ github.workspace }}/jenkins_home:/var/jenkins_home esrednitskaya/jenkinsci_jh_2.332_jdk11
+      run: docker run --rm -d -p 8080:8080 -p 50000:50000 --name my_jenkins -v ${{ github.workspace }}/.jenkins:/var/jenkins_home esrednitskaya/jenkinsci_jh_2.332_jdk11
       
     - name: Change wrapper permissions
       run: chmod +x ./.github/wait-for-jenkins.sh 
@@ -53,6 +53,7 @@ jobs:
       run: ./.github/wait-for-jenkins.sh        
       
     - name: Maven test
+      id: mvn_test
       run: mvn clean test 
       env:
           CHROME_OPTIONS: --disable-gpu;--no-sandbox;--disable-dev-shm-usage;--headless;--window-size=1920,1080
@@ -61,5 +62,12 @@ jobs:
       continue-on-error: true
       
     - name: Check on failures
-      if: steps.test.outcome != 'success'
-      run: exit 1
+      #if: steps.mvn_test.outcome != 'SUCCESS'
+      #run: exit 1
+      if: always()
+      run: |
+          if ${{ steps.mvn_test.outcome=='success' }}; then
+             echo fine
+          else
+             exit 1
+          fi
