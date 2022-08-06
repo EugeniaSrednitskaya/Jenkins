@@ -29,7 +29,7 @@ jobs:
       
     - name: Prepare Jenkins data
       run: |
-          cat ${{ github.workspace }}/jenkins_home/.jenkins_home.7z.00* > ${{ github.workspace }}/jenkins_home.7z
+          cat ${{ github.workspace }}/jenkins_home/.jenkins.7z.00* > ${{ github.workspace }}/jenkins_home.7z
           md5sum ${{ github.workspace }}/jenkins_home.7z
 
     - name: Extract Jenkins data and set permission
